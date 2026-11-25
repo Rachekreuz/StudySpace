@@ -225,10 +225,7 @@ Logout:
 8. Wait for GitHub Pages to publish.
 9. Open the published website URL.
 
-Typical project-site URL:
-  https://YOUR-USERNAME.github.io/StudySpace/
-
-Replace YOUR-USERNAME with your GitHub username.
+Project Website: https://schwarzkrieg.github.io/StudySpace/
 
 GitHub Pages hosts static files. It does not run PHP or MySQL.
 
