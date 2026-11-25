@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudySpace</title>
+  <meta name="description" content="A personal workspace for students.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- LANDING PAGE -->
+    <section id="homeView" class="view">
+      <nav class="landing-nav">
+        <a href="#" class="brand" data-view="home">
+          <span class="brand-mark">S</span> StudySpace
+        </a>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="homeTheme" title="Toggle theme">☾</button>
+          <button class="btn btn-ghost" data-view="login">Log in</button>
+          <button class="btn btn-primary" data-view="register">Get started</button>
+        </div>
+      </nav>
+
+      <main class="landing-main">
+        <div class="hero">
+          <span class="eyebrow">YOUR PERSONAL STUDY WORKSPACE</span>
+          <h1>Make space for<br><span class="accent">better learning.</span></h1>
+          <p class="hero-description">
+            Keep your tasks organized, track your progress, and make
+            your student life a little less overwhelming.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-large" data-view="register">Get started →</button>
+            <button class="btn btn-ghost btn-large" data-view="login">I already have an account</button>
+          </div>
+        </div>
+
+        <div class="hero-preview">
+          <div class="preview-top">
+            <div class="preview-dots"><span></span><span></span><span></span></div>
+            <span>studyspace / dashboard</span>
+          </div>
+          <div class="preview-content">
+            <div class="preview-sidebar">
+              <div class="preview-logo">S</div>
+              <div class="preview-side-item active">▦</div>
+              <div class="preview-side-item">✓</div>
+              <div class="preview-side-item">⚙</div>
+            </div>
+            <div class="preview-dashboard">
+              <span class="preview-muted">YOUR OVERVIEW</span>
+              <h3>Welcome back.</h3>
+              <div class="preview-stats">
+                <div><small>Total tasks</small><strong>12</strong></div>
+                <div><small>Completed</small><strong>8</strong></div>
+                <div><small>In progress</small><strong>3</strong></div>
+              </div>
+              <div class="preview-task">
+                <span class="preview-check">✓</span> Review lecture notes
+                <span class="preview-tag">Completed</span>
+              </div>
+              <div class="preview-task">
+                <span class="preview-check empty"></span> Finish research paper
+                <span class="preview-tag purple">In progress</span>
+              </div>
+              <div class="preview-task">
+                <span class="preview-check empty"></span> Prepare presentation
+                <span class="preview-tag">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon">✓</span>
+            <h3>Manage your tasks</h3>
+            <p>Keep assignments, personal goals, and deadlines in one place.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">▤</span>
+            <h3>Track your progress</h3>
+            <p>See what you've accomplished and what still needs attention.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">◐</span>
+            <h3>Make it yours</h3>
+            <p>Customize your profile and choose your preferred theme.</p>
+          </article>
+        </div>
+      </main>
+      <footer class="landing-footer">StudySpace Lite · A student productivity prototype</footer>
+    </section>
+
+    <!-- AUTHENTICATION -->
+    <section id="authView" class="view hidden">
+      <div class="auth-layout">
+        <div class="auth-side">
+          <a href="#" class="brand" data-view="home">
+            <span class="brand-mark">S</span> StudySpace
+          </a>
+          <div class="auth-message">
+            <span class="eyebrow">YOUR SPACE. YOUR PACE.</span>
+            <h1>Less chaos.<br><span class="accent">More clarity.</span></h1>
+            <p>Build better habits, one task at a time.</p>
+          </div>
+          <div class="auth-side-bottom">StudySpace Lite</div>
+        </div>
+
+        <div class="auth-form-side">
+          <button class="theme-toggle auth-theme" id="authTheme" title="Toggle theme">☾</button>
+          <button class="back-home" data-view="home">← Back to home</button>
+
+          <div class="auth-form-container">
+            <div id="loginFormWrap">
+              <span class="eyebrow">WELCOME BACK</span>
+              <h2>Log in</h2>
+              <p class="form-subtitle">Enter your credentials to continue.</p>
+              <form id="loginForm">
+                <label for="loginEmail">Email address</label>
+                <input id="loginEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" placeholder="Your password" required autocomplete="current-password">
+                <div id="loginError" class="form-error"></div>
+                <button class="btn btn-primary btn-full" type="submit">Log in</button>
+              </form>
+              <p class="auth-switch">Don't have an account? <button class="text-button" data-view="register">Create one</button></p>
+            </div>
+
+            <div id="registerFormWrap" class="hidden">
+              <span class="eyebrow">CREATE YOUR SPACE</span>
+              <h2>Create an account</h2>
+              <p class="form-subtitle">Start organizing your student life.</p>
+              <form id="registerForm">
+                <label for="registerName">Full name</label>
+                <input id="registerName" type="text" placeholder="Your name" required maxlength="60" autocomplete="name">
+                <label for="registerEmail">Email address</label>
+                <input id="registerEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+                <label for="registerPassword">Password</label>
+                <input id="registerPassword" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password">
+                <label for="registerConfirm">Confirm password</label>
+                <input id="registerConfirm" type="password" placeholder="Repeat your password" required autocomplete="new-password">
+                <div id="registerError" class="form-error"></div>
+                <button class="btn btn-primary btn-full" type="submit">Create account</button>
+              </form>
+              <p class="auth-switch">Already have an account? <button class="text-button" data-view="login">Log in</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP DASHBOARD -->
+    <section id="appView" class="view hidden">
+      <div class="app-shell">
+        <aside class="sidebar" id="sidebar">
+          <a href="#" class="brand sidebar-brand" data-view="dashboard">
+            <span class="brand-mark">S</span> StudySpace
+          </a>
+
+          <div class="sidebar-label">WORKSPACE</div>
+          <button class="side-link active" data-page="dashboard"><span>▦</span> Overview</button>
+          <button class="side-link" data-page="tasks"><span>✓</span> My Tasks</button>
+
+          <div class="sidebar-label">PERSONAL</div>
+          <button class="side-link" data-page="profile"><span>◉</span> My Profile</button>
+          <button class="side-link" data-page="settings"><span>⚙</span> Settings</button>
+
+          <div class="sidebar-bottom">
+            <button class="theme-toggle sidebar-theme" id="sidebarTheme">
+              <span id="themeIcon">☾</span>
+              <span id="themeLabel">Night mode</span>
+            </button>
+            <div class="sidebar-user">
+              <div class="avatar" id="sidebarAvatar">S</div>
+              <div class="sidebar-user-info">
+                <strong id="sidebarName">Student</strong>
+                <small id="sidebarEmail">student@example.com</small>
+              </div>
+            </div>
+            <button class="side-link logout-link" id="logoutBtn"><span>↪</span> Log out</button>
+          </div>
+        </aside>
+
+        <div class="main-panel">
+          <header class="app-header">
+            <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+            <div class="header-breadcrumb" id="pageBreadcrumb">Overview</div>
+            <div class="header-right">
+              <span class="header-date" id="headerDate"></span>
+              <div class="avatar avatar-small" id="headerAvatar">S</div>
+            </div>
+          </header>
+
+          <main class="page-content">
+
+            <!-- DASHBOARD PAGE -->
+            <section id="dashboardPage" class="app-page">
+              <div class="page-heading">
+                <div>
+                  <span class="eyebrow">YOUR OVERVIEW</span>
+                  <h1 id="welcomeHeading">Welcome back.</h1>
+                  <p>Here's how your workspace is looking.</p>
+                </div>
+                <button class="btn btn-primary" id="quickAddBtn">+ New task</button>
+              </div>
+
+              <div class="stat-grid">
+                <article class="stat-card">
+                  <span class="stat-label">Total tasks</span>
+                  <strong id="totalStat">0</strong>
+                  <span class="stat-note">All your tasks</span>
+                </article>
+                <article class="stat-card">
+                  <span class="stat-label">Completed</span>
+                  <strong id="completedStat">0</strong>
+                  <span class="stat-note">Finished tasks</span>
+                </article>
+                <article class="stat-card">
+                  <span class="stat-label">In progress</span>
+                  <strong id="progressStat">0</strong>
+                  <span class="stat-note">Currently working on</span>
+                </article>
+                <article class="stat-card">
+                  <span class="stat-label">Pending</span>
+                  <strong id="pendingStat">0</strong>
+                  <span class="stat-note">Waiting to start</span>
+                </article>
+              </div>
+
+              <div class="dashboard-grid">
+                <article class="panel progress-panel">
+                  <div class="panel-header">
+                    <div>
+                      <h3>Your progress</h3>
+                      <p>Task completion overview</p>
+                    </div>
+                  </div>
+                  <div class="progress-overview">
+                    <div class="progress-ring" id="progressRing">
+                      <div class="progress-ring-inner">
+                        <strong id="completionPercent">0%</strong>
+                        <small>completed</small>
+                      </div>
+                    </div>
+                    <div class="progress-details">
+                      <div><span class="legend-dot purple-dot"></span> Completed <strong id="progressCompleted">0</strong></div>
+                      <div><span class="legend-dot blue-dot"></span> In progress <strong id="progressInProgress">0</strong></div>
+                      <div><span class="legend-dot gray-dot"></span> Pending <strong id="progressPending">0</strong></div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel recent-panel">
+                  <div class="panel-header">
+                    <div>
+                      <h3>Recent tasks</h3>
+                      <p>Your latest activity</p>
+                    </div>
+                    <button class="text-button" data-page="tasks">View all →</button>
+                  </div>
+                  <div id="recentTasks" class="task-list compact-list"></div>
+                </article>
+              </div>
+
+              <article class="panel upcoming-panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>Upcoming deadlines</h3>
+                    <p>Tasks with approaching due dates</p>
+                  </div>
+                  <button class="text-button" data-page="tasks">View tasks →</button>
+                </div>
+                <div id="upcomingTasks" class="task-list"></div>
+              </article>
+            </section>
+
+            <!-- TASK PAGE -->
+            <section id="tasksPage" class="app-page hidden">
+              <div class="page-heading">
+                <div>
+                  <span class="eyebrow">YOUR WORK</span>
+                  <h1>My Tasks</h1>
+                  <p>Manage your assignments and personal goals.</p>
+                </div>
+                <button class="btn btn-primary" id="addTaskBtn">+ Add task</button>
+              </div>
+
+              <div class="task-toolbar">
+                <input id="taskSearch" type="search" placeholder="Search tasks..." aria-label="Search tasks">
+                <select id="taskFilter" aria-label="Filter tasks">
+                  <option value="all">All tasks</option>
+                  <option value="pending">Pending</option>
+                  <option value="progress">In progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+                <select id="taskSort" aria-label="Sort tasks">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="due">Due date</option>
+                </select>
+              </div>
+
+              <div id="allTasks" class="task-list full-task-list"></div>
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section id="profilePage" class="app-page hidden">
+              <div class="page-heading">
+                <div>
+                  <span class="eyebrow">PERSONAL</span>
+                  <h1>My Profile</h1>
+                  <p>Manage your personal information.</p>
+                </div>
+              </div>
+
+              <article class="panel profile-panel">
+                <div class="profile-hero">
+                  <div class="avatar avatar-large" id="profileAvatar">S</div>
+                  <div>
+                    <h2 id="profileDisplayName">Student</h2>
+                    <p id="profileDisplayEmail">student@example.com</p>
+                  </div>
+                </div>
+                <form id="profileForm">
+                  <div class="form-grid">
+                    <div>
+                      <label for="profileName">Full name</label>
+                      <input id="profileName" required maxlength="60">
+                    </div>
+                    <div>
+                      <label for="profileEmail">Email</label>
+                      <input id="profileEmail" disabled>
+                    </div>
+                    <div>
+                      <label for="profileCourse">Course / Program</label>
+                      <input id="profileCourse" maxlength="100" placeholder="e.g. BS Computer Science">
+                    </div>
+                  </div>
+                  <label for="profileBio">About me</label>
+                  <textarea id="profileBio" rows="4" maxlength="500" placeholder="Write a little about yourself..."></textarea>
+                  <div class="form-actions">
+                    <button class="btn btn-primary" type="submit">Save profile</button>
+                  </div>
+                </form>
+              </article>
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section id="settingsPage" class="app-page hidden">
+              <div class="page-heading">
+                <div>
+                  <span class="eyebrow">PREFERENCES</span>
+                  <h1>Settings</h1>
+                  <p>Customize your StudySpace experience.</p>
+                </div>
+              </div>
+
+              <article class="panel settings-panel">
+                <div class="setting-row">
+                  <div>
+                    <h3>Appearance</h3>
+                    <p>Choose the visual theme you prefer.</p>
+                  </div>
+                  <div class="theme-options" id="themeOptions">
+                    <button class="theme-option" data-theme-choice="day"><span>☀</span> Day</button>
+                    <button class="theme-option" data-theme-choice="night"><span>☾</span> Night</button>
+                  </div>
+                </div>
+                <div class="setting-row">
+                  <div>
+                    <h3>Storage</h3>
+                    <p>Your demo account and tasks are saved in this browser.</p>
+                  </div>
+                  <span class="storage-badge">Local storage</span>
+                </div>
+                <div class="setting-row danger-row">
+                  <div>
+                    <h3>Delete demo account</h3>
+                    <p>Delete this account and its stored tasks from this browser.</p>
+                  </div>
+                  <button class="btn btn-danger" id="deleteAccountBtn">Delete account</button>
+                </div>
+              </article>
+            </section>
+
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK MODAL -->
+    <div class="modal-overlay hidden" id="taskModal">
+      <div class="modal">
+        <div class="modal-header">
+          <div>
+            <span class="eyebrow">TASK MANAGEMENT</span>
+            <h2 id="taskModalTitle">Add a task</h2>
+          </div>
+          <button class="modal-close" id="closeTaskModal" aria-label="Close">×</button>
+        </div>
+        <form id="taskForm">
+          <input type="hidden" id="taskId">
+          <label for="taskTitle">Task title</label>
+          <input id="taskTitle" required maxlength="120" placeholder="What do you need to do?">
+          <label for="taskDescription">Description</label>
+          <textarea id="taskDescription" rows="3" maxlength="1000" placeholder="Add some details..."></textarea>
+          <div class="form-grid">
+            <div>
+              <label for="taskDueDate">Due date</label>
+              <input id="taskDueDate" type="date">
+            </div>
+            <div>
+              <label for="taskStatus">Status</label>
+              <select id="taskStatus">
+                <option value="pending">Pending</option>
+                <option value="progress">In progress</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div id="taskError" class="form-error"></div>
+          <div class="modal-actions">
+            <button class="btn btn-ghost" type="button" id="cancelTask">Cancel</button>
+            <button class="btn btn-primary" type="submit" id="saveTaskBtn">Save task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- NOTIFICATION -->
+    <div id="toast" class="toast hidden" role="status"></div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
