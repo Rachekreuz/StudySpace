@@ -1,9 +1,9 @@
-# StudySpace
-
-STUDYSPACE LITE
+# STUDYSPACE LITE
 Project Documentation
 Version 1.0 | Browser-based functional prototype
 ============================================================
+
+Project Website: https://rachekreuz.github.io/StudySpace/
 
 1. PROJECT OVERVIEW
 ------------------
@@ -224,8 +224,6 @@ Logout:
 7. Save.
 8. Wait for GitHub Pages to publish.
 9. Open the published website URL.
-
-Project Website: https://schwarzkrieg.github.io/StudySpace/
 
 GitHub Pages hosts static files. It does not run PHP or MySQL.
 
